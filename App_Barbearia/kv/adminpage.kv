@@ -1,0 +1,108 @@
+<AdminPage>:
+
+    FloatLayout:
+
+
+        ScrollView:
+                                      
+            pos_hint: {"center_x": 0.5, "top": 0.6}
+            size_hint: 0.65, 0.55
+            GridLayout:
+
+                cols: 2
+                id : lista_horarios_marcados
+                spacing: 20 , 10
+                padding: 10, 10 , 10 , 10
+                size_hint_y: None
+                height: self.minimum_height
+                row_default_height: "60dp"
+                row_force_default: True
+        
+
+        LabelButtonCustomizado:
+            cor_canvas: utils.get_color_from_hex("#25be3b")
+            
+
+            pos_hint: {"center_x": 0.23, "top": 0.91}
+            size_hint: 0.3, 0.07
+            tamanho_original: 0.3, 0.07
+            
+            font_size: '15sp'
+            font_size_original: '15sp'
+            text: "ABRIR TODOS HORÁRIOS"
+            bold : True                                             
+            text_size : 172, None
+            halign: 'center'
+            on_release: app.mostrar_popup_admin("Você quer mesmo abrir todos horários?",  app.abrir_todos_hrr_thread)
+
+
+
+        LabelButtonCustomizado:
+            cor_canvas: utils.get_color_from_hex("#ea1b45")
+            pos_hint: {"center_x": 0.77, "top": 0.91}
+
+            size_hint: 0.3, 0.07
+            tamanho_original: 0.3, 0.07
+            
+            font_size: '15sp'
+            font_size_original: '15sp'
+            text: "FECHAR TODOS HORÁRIOS"
+            bold : True
+            text_size : 172, None
+            
+            halign: 'center'
+            valign: 'top'
+            on_release: app.mostrar_popup_admin("Você quer mesmo fechar todos horários?",  app.fechar_todos_hrr_thread)                          
+
+
+
+        FloatLayout:
+            ImageButtonVoltar:
+                                    
+                pos_hint : {"right": 0.07, "top": 0.96}
+                size_hint : 0.04, 0.04
+                size_hint_original : 0.04, 0.04
+
+                source: "icones/voltar.png"
+                on_release: app.mudar_tela("homepage")
+
+
+        LabelButtonCustomizado:
+            cor_canvas: utils.get_color_from_hex("#4c1e56")
+               
+            pos_hint: {"center_x":0.15, "top": 0.68}
+            size_hint: 0.15, 0.07
+            tamanho_original: 0.15, 0.07
+            font_size: '10sp'
+            font_size_original: '10sp'
+            text: "EXCLUIR AGENDA"
+            bold : True
+            text_size : 70, None
+            halign: 'center'
+            on_release: app.excluir_horarios_agendados()
+ 
+
+
+        GridLayout:
+            cols : 1
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            size_hint: 0.5, 0.4
+            id: pop_up
+            
+
+        TongleButtonCuston: 
+            pos_hint: {"center_x": 0.8, "top": 0.74} 
+            size_hint: 0.3 , 0.1 
+            background_normal: ''
+
+        Label:
+            pos_hint: {"center_x": 0.8, "top": 0.8} 
+            size_hint: 0.1, 0.05
+            markup : True
+            text: "[color=#ea1b45]Fechar[/color]/[color=#25be3b]Abrir[/color] estabelecimento"
+            bold: True
+            color: utils.get_color_from_hex("#4c1e56")
+            font_size: '15sp'
+            halign: 'center'
+            text_size : 110, None
+            

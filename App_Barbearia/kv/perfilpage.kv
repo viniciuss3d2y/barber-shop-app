@@ -1,0 +1,35 @@
+<PerfilPage>:
+    FloatLayout:
+
+        FloatLayout:
+            ImageButtonVoltar:
+                                   
+                pos_hint : {"right": 0.07, "top": 0.96}
+                size_hint : 0.04, 0.04
+                size_hint_original : 0.04, 0.04
+
+                source: "icones/voltar.png"
+                on_release: app.mudar_tela("homepage")
+                
+
+        ScrollView:
+            pos_hint: {"center_x": 0.5 , "top": 0.7}
+            size_hint: 0.7 , 0.7
+            GridLayout:
+                cols : 3
+                id : lista_fotos_perfil
+                spacing: 20 , 20
+                size_hint_y: None
+                height: self.minimum_height
+                row_default_height: "60dp"
+                row_force_default: True
+
+        
+
+        ImageButtonZoom:
+            id: foto_usuario
+            pos_hint: {"center_x": 0.8 , "top": 0.95}
+            size_hint: 0.1 , 0.1
+            tamanho_original: 0.1 , 0.1
+            
+            source: "fotos_perfil/foto0.png"

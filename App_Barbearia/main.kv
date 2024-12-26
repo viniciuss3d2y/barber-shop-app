@@ -1,0 +1,55 @@
+#: import utils kivy.utils
+#: include kv/horariospage.kv
+#: include kv/homepage.kv
+#: include kv/loginpage.kv
+#: include kv/adminpage.kv
+#: include kv/criarcontapage.kv
+#: include kv/perfilpage.kv
+#:import SwapTransition kivy.uix.screenmanager.SwapTransition
+
+
+
+FloatLayout:
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex("#FFFFFF")
+        Rectangle:
+            pos: self.pos
+            size: self.size
+        
+
+    Image:
+        pos_hint: {"center_x": 0.5, "top": 0.93}
+        size_hint: 0.1, 0.1
+        source : "icones/barbearia.png"
+
+
+
+    ScreenManager:
+        transition: SwapTransition()
+        id : screenmanager
+
+        LoginPage:
+            name: "loginpage"
+            id : loginpage
+
+        HomePage:
+            name: "homepage"
+            id : homepage
+
+        HorariosPage:
+            name: "horariospage"
+            id : horariospage
+
+        
+        AdminPage:
+            name: "adminpage"
+            id : adminpage
+        
+        CriarContaPage:
+            name: "criarcontapage"
+            id : criarcontapage
+        
+        PerfilPage:
+            name: "perfilpage"
+            id: perfilpage

@@ -1,0 +1,136 @@
+<CriarContaPage>:
+
+    FloatLayout:
+
+        canvas.before:
+            Color:
+                rgba: utils.get_color_from_hex("#eff1f1")
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+
+        FloatLayout:
+            pos_hint: {"center_x": 0.5, "top": 0.85}
+            size_hint: 0.6, 0.7
+            canvas.before:
+                Color:
+                    rgba: utils.get_color_from_hex("#ffffff")
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius : [20,]
+
+            TextInput:
+                id : input_nome_usuario
+                canvas.before:
+                    Color:
+                        rgba: utils.get_color_from_hex("#4e3487")
+                    Line:
+                        width: 1.5
+                        rectangle: (self.x, self.y, self.width, self.height)
+
+                pos_hint: {"center_x": 0.5, "top": 0.68}
+                size_hint: 0.5, 0.1
+
+                multiline : False
+                foreground_color : 0, 0, 0, 0.9
+                cursor_color : 0, 0, 0, 0.75
+                hint_text : "Nome de usuario"
+                background_normal: ''
+                background_active: ''
+                background_color : 1 , 1, 1, 1
+                padding: [20, 10]
+
+
+            TextInput:
+                canvas.before:
+                    Color:
+                        rgba: utils.get_color_from_hex("#4e3487")
+                    Line:
+                        width: 1.5
+                        rectangle: (self.x, self.y, self.width, self.height)
+
+
+                id : input_email
+                pos_hint: {"center_x": 0.5, "top": 0.53}
+                size_hint: 0.6, 0.1
+                multiline : False
+                foreground_color : 0, 0, 0, 0.9
+                cursor_color : 0, 0, 0, 0.75
+                hint_text : "Email"
+                background_normal: ''
+                background_active: ''
+                background_color : 1 , 1, 1, 1
+                padding: [20, 10]
+
+                
+
+            TextInput:
+                canvas.before:
+                    Color:
+                        rgba: utils.get_color_from_hex("#4e3487")
+                    Line:
+                        width: 1.5
+                        rectangle: self.x, self.y, self.width, self.height
+
+                id: input_senha
+                pos_hint: {"center_x": 0.5, "top": 0.38}
+                size_hint: 0.6, 0.1
+
+
+                multiline: False
+                foreground_color: 0, 0, 0, 0.9
+                cursor_color: 0, 0, 0, 0.75
+                hint_text: "Senha"
+                password: True
+                background_normal: ''
+                background_active: ''
+                padding: [20, 10]
+
+
+            
+
+            Label:
+                id : mensagem_alerta
+                pos_hint: {"center_x": 0.5, "top": 0.1}
+                size_hint: 1, 0.1
+                text: ""
+
+
+            LabelButton:
+                canvas.before:
+                    Color:
+                        rgba: utils.get_color_from_hex("#4e3487")
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [22]
+    
+                pos_hint: {"center_x": 0.5, "top": 0.2}
+                size_hint: 0.65, 0.1
+                text: "Criar conta"
+                bold : True
+                on_release: app.myfirebase.criar_conta(input_email.text, input_senha.text, input_nome_usuario.text)
+                
+            
+
+            
+            Image:
+                pos_hint: {"center_x": 0.5, "top": 0.9}
+                size_hint: 0.2, 0.12
+                source: "icones/barbearia.png"
+            
+            Label:
+                pos_hint: {"center_x": 0.5, "top": 0.8}
+                size_hint: 0.12, 0.12
+                text: "Seja bem vindo"
+                color: utils.get_color_from_hex("#4e3487")
+                bold: True
+
+    
+        ImageButton:
+            pos_hint: {"right": 0.08, "top": 0.96}
+            size_hint: 0.05, 0.05
+            on_release: app.mudar_tela("loginpage")
+            source: "icones/volta.png"

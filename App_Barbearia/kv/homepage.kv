@@ -1,0 +1,37 @@
+<HomePage>:
+    FloatLayout:
+        id: teste
+        
+
+
+
+        Label:
+            id : mensagem_comprimentar_usuario
+            pos_hint: {"center_x": 0.5, "top": 0.85}
+            size_hint: 0.1, 0.1
+            text: ""
+            font_siz: '17sp'
+            bold : True
+            markup : True
+
+
+
+
+        GridLayout:
+            rows: 1
+            id: grid_botoes
+
+            pos_hint: {"right": 1, "top": 0.1}
+            size_hint: 1 , 0.08
+
+
+
+        Label:
+            id : mensagem_aviso
+            pos_hint: {"center_x": 0.5, "top": 0.8}
+            size_hint: 0.1 , 0.1
+            text: ""
+            color : utils.get_color_from_hex("#4e3487")
+            bold: True
+            text_size: 250, 50
+            halign : 'center'
